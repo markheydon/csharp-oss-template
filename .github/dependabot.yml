@@ -12,9 +12,7 @@ updates:
     assignees:
       - markheydon
     labels:
-      - type/chore
-      - status/in-review
-      - priority/medium
+      - dependencies
     groups:
       tests:
         patterns:
@@ -71,9 +69,7 @@ updates:
     assignees:
       - markheydon
     labels:
-      - type/chore
-      - status/in-review
-      - priority/medium
+      - dependencies
     groups:
       github-actions:
         patterns:
@@ -94,6 +90,4 @@ updates:
     assignees:
       - markheydon
     labels:
-      - type/chore
-      - status/in-review
-      - priority/medium
+      - dependencies
