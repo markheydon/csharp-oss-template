@@ -5,7 +5,7 @@
 
 ---
 
-## In Scope — v1.0
+## In Scope - v1.0
 
 - …
 

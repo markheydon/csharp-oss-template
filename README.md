@@ -1,6 +1,6 @@
 # C# OSS project template
 
-GitHub template for **Mark Heydon**-style open source .NET repositories: governance markdown, Cursor agent rules, CI, optional GitHub Releases on tags, and xUnit v3 tests. Works for class libraries, Blazor packages, tools, or apps — not only HTTP clients.
+GitHub template for **Mark Heydon**-style open source .NET repositories: governance markdown, Cursor agent rules, CI, optional GitHub Releases on tags, and xUnit v3 tests. Works for class libraries, Blazor packages, tools, or apps - not only HTTP clients.
 
 **Using this template:** click **Use this template** on GitHub, then follow [TEMPLATE.md](TEMPLATE.md).
 
@@ -26,4 +26,4 @@ dotnet test Repo.slnx -c Release --no-build
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

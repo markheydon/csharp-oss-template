@@ -29,7 +29,7 @@ Add folders (`samples/`, `docs/`, Blazor projects, etc.) as the product grows. U
 - **Nullable reference types** enabled (`Directory.Build.props`).
 - **Treat warnings as errors** in all projects.
 - **XML documentation** on public API members.
-- **HTTP outbound calls** (if any): use `IHttpClientFactory` and typed clients — see [dotnet-api-client-template](https://github.com/markheydon/dotnet-api-client-template) or ADR-0001 in that template.
+- **HTTP outbound calls** (if any): use `IHttpClientFactory` and typed clients - see [dotnet-api-client-template](https://github.com/markheydon/dotnet-api-client-template) or ADR-0001 in that template.
 
 ---
 
@@ -37,7 +37,7 @@ Add folders (`samples/`, `docs/`, Blazor projects, etc.) as the product grows. U
 
 - **xUnit v3** with Microsoft.Testing.Platform.
 - **NSubstitute** when mocks are required.
-- **Built-in `Assert` only** — no FluentAssertions, Shouldly, Moq, NUnit, or MSTest.
+- **Built-in `Assert` only** - no FluentAssertions, Shouldly, Moq, NUnit, or MSTest.
 - Test classes: `[ClassName]Tests`. Test methods: `Method_State_Expected`.
 
 ---

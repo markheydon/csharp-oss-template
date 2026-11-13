@@ -9,7 +9,7 @@ Read before non-trivial changes:
 - `GOALS.md`
 - `SCOPE.md`
 - `CONVENTIONS.md`
-- `adr/` — accepted decisions
+- `adr/` - accepted decisions
 
 ## Language
 

@@ -39,7 +39,7 @@ Add `docs/_config.yml` and consumer markdown under `docs/` when you need a publi
 
 1. Set `<Version>` or tag-only versioning policy in [VERSIONING.md](VERSIONING.md).
 2. Merge to `main`.
-3. `git tag v0.1.0 && git push origin v0.1.0` — creates a GitHub Release via [plan/RELEASE.md](plan/RELEASE.md).
+3. `git tag v0.1.0 && git push origin v0.1.0` - creates a GitHub Release via [plan/RELEASE.md](plan/RELEASE.md).
 
 ## 6. Cursor
 
