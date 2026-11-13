@@ -35,7 +35,10 @@ Repo `dependabot.yml` files can easily become inconsistent, overly complex, and 
        - analyzers
    - Avoid over-engineering group definitions
 8. Labels:
-   - Where a repo has a label called 'type/chore', then use that; otherwise use the default GitHub out-of-the-box label 'dependencies'.
+   - When you can, confirm labels on GitHub (prefer `gh label list` from the repo root). Do **not** infer labels from `plan/LABEL_STRATEGY.md`, issue templates, or other docs; those may describe labels that are not created on GitHub yet.
+   - If the check succeeds and `type/chore` is present, use `type/chore` only.
+   - If the check succeeds and `type/chore` is absent, use the default GitHub label `dependencies` only.
+   - If the check cannot be made (no `gh`, not signed in, no network, wrong remote, or any error), use `dependencies` only. Do not guess.
 9. Assignees:
    - Always assign PRs to: markheydon
 10. Do NOT include:
@@ -66,5 +69,5 @@ Microsoft.OpenApi's versions are aligned to specific .NET versions therefore the
 ## Output
 
 - ONLY an updated, final `dependabot.yml`, which you will update the repo's version with.
-- No explanations.
-- No comments unless they add real value.
+- Very brief explanation of what changed, not the full diff.
+- No other comments unless they add real value.
