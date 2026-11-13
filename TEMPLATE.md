@@ -4,47 +4,79 @@ Complete after **Use this template** (or cloning).
 
 ## 1. Rename placeholders
 
-Search the repository for **`Acme.Project`** and replace with your project or package name (for example `MyCompany.Widgets` or `MyApp`).
+Search the repository for **`Acme.Project`** and replace with your project name (for example `MyCompany.Widgets` or `MyApp`).
 
 | Item | Action |
 |------|--------|
+| `Repo.slnx` | Rename to your product solution (for example `MyApp.slnx`) and update paths inside |
+| `.github/workflows/*.yml` | Replace `Repo.slnx` with your solution file name |
+| `.vscode/settings.json` | Set `dotnet.defaultSolution` to your solution file |
+| `.cursor/commands/` | Replace `Repo.slnx` in command text if you use Cursor |
 | `src/Acme.Project/` | Rename folder and `.csproj` |
 | `tests/Acme.Project.Tests/` | Rename folder, `.csproj`, and project reference |
-| `Repo.slnx` | Update project paths |
 | `RootNamespace` | Set in `.csproj` if different from assembly name |
 | `README.md` | Product title, badges, links |
 | `GOALS.md`, `SCOPE.md` | Real goals and boundaries |
-| `.github/workflows/*.yml` | Solution name stays `Repo.slnx` unless you rename the file |
-| `.github/ISSUE_TEMPLATE/config.yml` | Contact links → your repo (`SUPPORT.md`, discussions, security policy) |
-| `.vscode/settings.json` | `dotnet.defaultSolution` if you rename `Repo.slnx` |
+| `.github/ISSUE_TEMPLATE/config.yml` | Contact links to your repo (`SUPPORT.md`, discussions, security policy) |
 | `SUPPORT.md`, `SECURITY.md` | Your support routing and disclosure contact |
 | `plan/PULL_REQUEST_POLICY.md` | Assignee and examples if they should not point at `markheydon` |
 
-Optional: rename `Repo.slnx` to `YourProduct.slnx` and update workflow paths.
+For packable **libraries** or HTTP client SDKs, use a dedicated template ([dotnet-api-client-template](https://github.com/markheydon/dotnet-api-client-template)) instead of extending this one for NuGet publishing.
 
 ## 2. GitHub repository settings
 
-- **About:** description, website (Pages or product URL), topics (`csharp`, `dotnet`, `open-source`, …).
+- **About:** description, website, topics (`csharp`, `dotnet`, `open-source`, …).
 - **Branch protection:** require CI on `main` if desired.
-- **Secrets:** only when you add integrations (NuGet, live smoke, etc.).
+- **Secrets:** only when you add integrations (deployment, live smoke tests, and similar).
 
-## 3. NuGet and consumer docs
+## 3. Agents and tooling
 
-This template does **not** publish to NuGet by default (`IsPackable` is false).
+These assets are **agent-agnostic** where possible:
 
-- **HTTP API client package:** generate from [dotnet-api-client-template](https://github.com/markheydon/dotnet-api-client-template).
-- **Other packable libraries:** set `IsPackable`, add `PackageId`, pack readme beside the `.csproj`, and copy the Release workflow NuGet steps from that template.
+| Path | Purpose |
+|------|---------|
+| `AGENTS.md` | Operating rules for coding agents |
+| `.agents/skills/` | [Agent Skills](https://agentskills.io/specification)-format skills (`SKILL.md` per folder) |
 
-## 4. GitHub Pages (optional)
+**Cursor-specific (optional):** [`.cursor/rules/`](.cursor/rules/) and [`.cursor/commands/`](.cursor/commands/) help in Cursor only. Remove or trim them if your team uses other agents.
 
-Add `docs/_config.yml` and consumer markdown under `docs/` when you need a published site. See the API client template for a working Jekyll config.
+**Dev Container features (optional):** the default [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json) includes `copilot-likes` and `cursor-cli`. Drop features you do not use; add others when you onboard optional stacks (below).
 
-## 5. First release
+Keep `AGENTS.md` aligned with how you actually work. Add skills under `.agents/skills/` when you repeat a workflow.
 
-1. Set `<Version>` or tag-only versioning policy in [VERSIONING.md](VERSIONING.md).
-2. Merge to `main`.
-3. `git tag v0.1.0 && git push origin v0.1.0` - creates a GitHub Release via [plan/RELEASE.md](plan/RELEASE.md).
+## 4. Dev Container and Codespaces
 
-## 6. Cursor
+The default Dev Container targets .NET 10 with `github-cli` (and the Cursor-oriented features above). Open the repo in **GitHub Codespaces** or **Dev Containers**, then run build/test from [AGENTS.md](AGENTS.md).
 
-Keep `AGENTS.md` and `.cursor/rules/` aligned with how you actually work. Add project skills under `.agents/skills/` when you repeat a workflow.
+**Feature lock file:** the first successful Dev Container build may create `.devcontainer/devcontainer-lock.json`. Commit it if you want pinned features and Dependabot `devcontainers` updates; otherwise add it to `.gitignore`.
+
+**HTTPS from a Dev Container on WSL:** after `dotnet dev-certs https --trust` in the container, run `scripts/export-dev-cert-for-windows-host.sh` and import the cert on the Windows host. Output goes under `.local/` (gitignored).
+
+### Optional: .NET Aspire
+
+Extend the Dev Container when the product uses Aspire:
+
+| Item | Action |
+|------|--------|
+| Features | Add `ghcr.io/microsoft/aspire-devcontainer-feature/aspire:3`, `ghcr.io/devcontainers/features/docker-in-docker:4` |
+| Azure CLI (optional) | Add `ghcr.io/devcontainers/features/azure-cli:1` when you deploy or sign in with `az login` locally |
+| `hostRequirements` | Raise to at least 4 CPUs and 8 GB RAM |
+| VS Code extension | `microsoft-aspire.aspire-vscode` |
+| `postStartCommand` | `aspire certs trust --non-interactive` (replace `dotnet dev-certs https --trust`) |
+| Agents | Follow current .NET Aspire documentation for AppHost setup and `aspire agent init` in your repo |
+
+### Optional: Spec Kit
+
+Follow the official [Spec Kit](https://github.com/github/spec-kit) installation and onboarding for your repo (devcontainer features, `.specify/`, and agent workflows). Do not copy uncustomised Spec Kit assets from another project.
+
+## 5. Using as a private repository
+
+The same scaffold works for private repos; you do not need a separate template.
+
+| Item | Notes |
+|------|--------|
+| Visibility | CI, Dev Container, and agent assets can stay as-is |
+| `LICENSE` | Replace MIT when the code is not open source |
+| Community files | `CODE_OF_CONDUCT.md`, `FUNDING.yml`, and public-facing `SUPPORT.md` are optional for internal-only repos |
+| Issue templates | Point [`.github/ISSUE_TEMPLATE/config.yml`](.github/ISSUE_TEMPLATE/config.yml) at your private repo URLs |
+| Releases | Tag-based GitHub Releases in [plan/RELEASE.md](plan/RELEASE.md) still work for internal versioning if you want them |

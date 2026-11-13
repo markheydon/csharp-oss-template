@@ -13,7 +13,7 @@ Read before non-trivial changes:
 
 ## Language
 
-UK English in documentation, comments, and user-facing text.
+UK English in documentation, comments, and user-facing text. Do not use the em dash (U+2014); see `CONVENTIONS.md` (Documentation).
 
 ## Tech Stack
 
@@ -29,7 +29,12 @@ Project skills live in `.agents/skills/`.
 | `create-architectural-decision-record` | Creating or major-updating an ADR |
 | `documentation-writer` | Diátaxis-aligned documentation |
 | `project-documentation` | Project-aware docs placement |
-| `pr-address-review` | Addressing open PR review threads |
+| `code-review` | PR or branch review before merge (see `.cursor/commands/loop-code-review.md`) |
+| `implementation-guardrails` | Non-trivial implementation, refactors, analyzer/build fixes, EF migrations, new abstractions - root-cause and proportionality discipline |
+
+### Optional stacks (add in the child repo)
+
+See [TEMPLATE.md](TEMPLATE.md) for Dev Container extensions. Onboard **.NET Aspire** and **Spec Kit** using each project's current official documentation (not by copying skills from another repository).
 
 ## Task Routing
 

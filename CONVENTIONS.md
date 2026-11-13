@@ -26,7 +26,7 @@ Add folders (`samples/`, `docs/`, Blazor projects, etc.) as the product grows. U
 ## Target framework
 
 - Default **`net10.0`** (.NET 10 LTS) on new projects; pin the SDK band in `global.json` with `rollForward: latestPatch`.
-- Multi-target older runtimes only when a shipped package needs it—add an ADR in that repository.
+- Multi-target older runtimes only when a shipped package needs it - add an ADR in that repository.
 
 ---
 
@@ -52,4 +52,5 @@ Add folders (`samples/`, `docs/`, Blazor projects, etc.) as the product grows. U
 ## Documentation
 
 - UK English in docs and comments.
+- Do not use the em dash (Unicode U+2014) in user-facing text, code comments, or documentation in product scope (`src/`, `tests/`, `docs/`, `adr/`, and related root markdown). Use spaced ASCII hyphen ` - ` for prose breaks; use a single `-` for empty or missing UI values (for example table placeholders).
 - User-facing docs in `docs/` when the README is not enough; see `.agents/skills/project-documentation/`.
