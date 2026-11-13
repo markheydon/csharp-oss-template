@@ -17,7 +17,7 @@ UK English in documentation, comments, and user-facing text.
 
 ## Tech Stack
 
-- .NET 8.0 and .NET 10.0.
+- .NET 10.0 (LTS).
 - xUnit v3 with Microsoft.Testing.Platform; NSubstitute when mocks are required; built-in asserts only.
 
 ## Skills

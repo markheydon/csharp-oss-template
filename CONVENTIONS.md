@@ -23,6 +23,13 @@ Add folders (`samples/`, `docs/`, Blazor projects, etc.) as the product grows. U
 
 ---
 
+## Target framework
+
+- Default **`net10.0`** (.NET 10 LTS) on new projects; pin the SDK band in `global.json` with `rollForward: latestPatch`.
+- Multi-target older runtimes only when a shipped package needs it—add an ADR in that repository.
+
+---
+
 ## C# patterns
 
 - **Async/await** for I/O; propagate `CancellationToken` on public async APIs.

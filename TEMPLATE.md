@@ -15,6 +15,10 @@ Search the repository for **`Acme.Project`** and replace with your project or pa
 | `README.md` | Product title, badges, links |
 | `GOALS.md`, `SCOPE.md` | Real goals and boundaries |
 | `.github/workflows/*.yml` | Solution name stays `Repo.slnx` unless you rename the file |
+| `.github/ISSUE_TEMPLATE/config.yml` | Contact links → your repo (`SUPPORT.md`, discussions, security policy) |
+| `.vscode/settings.json` | `dotnet.defaultSolution` if you rename `Repo.slnx` |
+| `SUPPORT.md`, `SECURITY.md` | Your support routing and disclosure contact |
+| `plan/PULL_REQUEST_POLICY.md` | Assignee and examples if they should not point at `markheydon` |
 
 Optional: rename `Repo.slnx` to `YourProduct.slnx` and update workflow paths.
 
