@@ -29,6 +29,15 @@ For packable **libraries** or HTTP client SDKs, use a dedicated template ([dotne
 - **Branch protection:** require CI on `main` if desired.
 - **Secrets:** only when you add integrations (deployment, live smoke tests, and similar).
 
+## Optional: Documentation strategy
+
+Define this when you grow beyond the README. The template does not prescribe a public doc site.
+
+- In **`GOALS.md`** or **`SCOPE.md`**, state who each channel is for (contributors, library integrators, app users, operators).
+- **`README.md`** remains the repository front door (evaluate, clone, build).
+- **Extended docs** can live in `docs/` (for example GitHub Pages from `/docs`), a separate folder such as `website/` (Hugo or another static site), or an external host; record the choice in project context so agents place new markdown correctly.
+- In-repo writing follows the [`project-documentation`](.agents/skills/project-documentation/) skill (Diátaxis types and [placement guide](.agents/skills/project-documentation/references/document-placement.md)). A product site in `website/` is a downstream concern; wire publishing in CI when needed.
+
 ## 3. Agents and tooling
 
 These assets are **agent-agnostic** where possible:

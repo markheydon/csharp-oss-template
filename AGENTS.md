@@ -27,8 +27,7 @@ Project skills live in `.agents/skills/`.
 | Skill | Use when |
 |---|---|
 | `create-architectural-decision-record` | Creating or major-updating an ADR |
-| `documentation-writer` | Diátaxis-aligned documentation |
-| `project-documentation` | Project-aware docs placement |
+| `project-documentation` | Diátaxis and project-aware docs (README, `docs/`, placement) |
 | `code-review` | PR or branch review before merge (see `.cursor/commands/loop-code-review.md`) |
 | `implementation-guardrails` | Non-trivial implementation, refactors, analyzer/build fixes, EF migrations, new abstractions - root-cause and proportionality discipline |
 
@@ -39,7 +38,7 @@ See [TEMPLATE.md](TEMPLATE.md) for Dev Container extensions. Onboard **.NET Aspi
 ## Task Routing
 
 - **Code** (`src/`, `tests/`): `CONVENTIONS.md`.
-- **Documentation** (`**/*.md` except `adr/`): documentation skills.
+- **Documentation** (`**/*.md` except `adr/`): `project-documentation` skill.
 - **ADRs** (`adr/*.md`): ADR skill only.
 
 ## Not Allowed Without Explicit Instruction
