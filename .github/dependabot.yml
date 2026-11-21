@@ -2,7 +2,7 @@ version: 2
 
 updates:
   - package-ecosystem: nuget
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
       day: monday
@@ -13,6 +13,10 @@ updates:
       - markheydon
     labels:
       - dependencies
+    ignore:
+      - dependency-name: "Microsoft.Extensions.*"
+        update-types:
+          - version-update:semver-major
     groups:
       tests:
         patterns:
@@ -27,20 +31,6 @@ updates:
       microsoft-extensions:
         patterns:
           - Microsoft.Extensions.*
-        update-types:
-          - minor
-          - patch
-      azure:
-        patterns:
-          - Azure.*
-          - Microsoft.Azure.*
-          - Aspire.*
-        update-types:
-          - minor
-          - patch
-      opentelemetry:
-        patterns:
-          - OpenTelemetry.*
         update-types:
           - minor
           - patch
@@ -59,7 +49,7 @@ updates:
           - patch
 
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
       day: monday
@@ -80,7 +70,7 @@ updates:
           - patch
 
   - package-ecosystem: devcontainers
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
       day: monday
@@ -91,3 +81,10 @@ updates:
       - markheydon
     labels:
       - dependencies
+    groups:
+      devcontainers:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
